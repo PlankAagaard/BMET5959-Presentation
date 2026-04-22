@@ -31,7 +31,7 @@ def Combined_signal(x, polx,y, poly):
 
 # Wave generator parameters
 # wavelengths = (np.random.rand(20)*900+100)*10**(-9) # 100-1000 nm
-wavelengths = (np.random.rand(20)*500+800)*10**(-9) # 800-1300 nm
+wavelengths = 0.5*(np.random.rand(20)*500+800)*10**(-9) # 800-1300 nm
 #wavelengths = 0.5*(np.random.rand(20)*200+400)*10**(-9) # 400-600 nm
 norms = (np.random.rand(20)-0.5)*2
 phases = np.random.rand(20)*2*np.pi
