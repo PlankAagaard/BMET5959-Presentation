@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.linalg as la
 from matplotlib.widgets import Slider
+from matplotlib.widgets import Button
 from matplotlib.patches import Polygon
 
 #Destructive og constructive interference simulation
@@ -88,6 +89,8 @@ ax[1,1].set_ylabel('Polarity (rad)')
 
 # slider to move reference mirror
 S = Slider(ax=ax[1,0], label='Time', valmin=0.8*1e-5, valmax=1.1*1e-5, valinit=0.95*1e-5)
+
+
 mirror=ax[0,0].axvline(x=S.val, ymin=0.25, ymax=0.75, color='black', linestyle='--')
 target = ax[0,0].plot([-0.2e-5,0.2e-5],[0.95e-5,0.95e-5], color='green', linewidth=3)
 
@@ -132,6 +135,11 @@ highlight = ax[0,1].axvline(x=0, color='red')
 ax[0,1].set_xlabel('Shift relative to target (m)')
 ax[0,1].set_ylabel('Intensity (a.u.)')
 
+# make descriptive text in plot
+ax[0,0].text(0.2*10**-5, 0.2*10**-5, 'Beamsplitter', fontsize=12, ha='left')
+ax[0,0].text(0.1*10**-5, -0.1*10**-5, 'Mirror', fontsize=12, ha='center')
+ax[0,0].text(0.2*10**-5, 0.95*10**-5, 'Target', fontsize=12, color='green', ha='left')
+ax[0,0].text(0.1*10**-5, -0.5*10**-5, 'Interfering light', color='purple', fontsize=12, ha='left')
 
 # Animating function, updates the plot when the slider is moved
 def update(val):
@@ -160,6 +168,10 @@ def update(val):
 
 
 S.on_changed(update)
-
+# savebutton = Button(ax[1,1], 'Save Waveform')
+# def save_data(event):
+#     np.savetxt('interference_data.csv', np.column_stack((Delta, Is)), delimiter=',', header='Shift (m), Intensity (a.u.)', comments='')
+#     np.savetxt('waveform_data.csv', np.column_stack((x, y, polarity)), delimiter=',', header='Position (m), Amplitude (a.u.), Polarity (rad)', comments='')
+# savebutton.on_clicked(save_data)
 
 plt.show()
