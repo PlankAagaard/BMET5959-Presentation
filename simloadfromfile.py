@@ -109,7 +109,7 @@ ax[0,1].set_ylabel('Intensity (a.u.)')
 
 # make descriptive text in plot
 ax[0,0].text(0.2*10**-5, 0.2*10**-5, 'Beamsplitter', fontsize=12, ha='left')
-ax[0,0].text(0.1*10**-5, -0.1*10**-5, 'Mirror', fontsize=12, ha='center')
+ax[0,0].text(0.85*10**-5, -0.1*10**-5, 'Mirror', fontsize=12, ha='center')
 ax[0,0].text(0.2*10**-5, 0.95*10**-5, 'Target', fontsize=12, color='green', ha='left')
 ax[0,0].text(0.1*10**-5, -0.5*10**-5, 'Interfering light', color='purple', fontsize=12, ha='left')
 
